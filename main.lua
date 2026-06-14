@@ -7,7 +7,9 @@ function love.update(dt)
 end
 
 function love.keypressed(key)
-
+    if key == "return" then
+        textbox_class:next()
+    end
 end
 
 function love.draw()
