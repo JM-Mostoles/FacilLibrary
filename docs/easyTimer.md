@@ -5,12 +5,12 @@
 Easytimer is a very plain and simple chronometer type of countdown, to create one, you must use the following statement at the logic where you're gonna make the timer:
 
 ```lua
-timerName = timer_class.new( Start at (Int recommended), Finish at (Int recommended), Speed (Int recommended), Loops (A     boolean), Starts paused? (A boolean) )
+timerName = timer_class.new( (Start at, int recommended), (Finish at, int recommended), (Speed, int recommended), (Loops, a boolean), (Starts paused? a boolean) )
 ```
 
 "timer_class" is a global variable. But you must require the module for safety.
 
-By default, these values are 
+By default, the .new() arguments are the following:
 ```lua
 1, 0, 1, false, true
 ```
@@ -20,11 +20,11 @@ By default, these values are
 - :pause()
 - :resume()
 - :toggleTimer() [If paused, resumes, and viceversa]
-
+  
 - :wontLoop()
 - :willLoop()
 - :toggleLoop()
-
+  
 - :update(dt) [IMPORTANT! Makes everything work.]
 
 ## Example of usage
