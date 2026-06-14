@@ -10,7 +10,7 @@ LÖVE RPG Creator (LRPGC) is a set of libraries which make creating RPG's much e
 LRPGC includes many utilities to accelerate your workflow, such as:
 
 - A basic timer
-- RPG-style textbox with typewritter effect
+- RPG-style textbox with typewriter effect
 - Inventory system
 - Sample for main character and a party
 - Sample for enemies
