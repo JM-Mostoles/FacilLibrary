@@ -28,19 +28,17 @@ function timer_class:willLoop()
 end
 
 function timer_class:toggleLoop()
-	self.loops = not self.loops 
+	self.loops = not self.loops
 end
-
 
 function timer_class:update(dt)
 	if self.isPaused == false then
-
 		self.currentTime = self.currentTime - (self.speed * dt)
 
-		if self.currentTime <=  self.finishAt then
+		if self.currentTime <= self.finishAt then
 			if self.loops then
 				self.currentTime = self.startAt
-			else 
+			else
 				self:pause()
 				self.currentTime = self.finishAt
 			end
@@ -56,7 +54,7 @@ function timer_class.new(startAt, finishAt, speed, loops, startPaused)
 
 	instance.startAt = startAt or 10
 	instance.finishAt = finishAt or 0
-    instance.currentTime = instance.startAt
+	instance.currentTime = instance.startAt
 	instance.speed = speed or 1
 	instance.loops = loops ~= false
 	instance.isPaused = startPaused == true
