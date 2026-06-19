@@ -8,7 +8,7 @@ You may create one with the subsequent parameters:
 ```lua
 require("pathTo.FacilTextbox")
 
-myTextbox = FacilTextbox_class.new
+myTextbox = FacilTextbox_class.new(
 (Will appear at bottom?, a boolean), 
 (Speed, int recommended), 
 (lines, a table of strings), 
