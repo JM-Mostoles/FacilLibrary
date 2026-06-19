@@ -5,7 +5,13 @@
 FacilTimer is a very plain and simple chronometer type of countdown, to create one, you must use the following statement at the logic where you're gonna make the timer:
 
 ```lua
-timerName = FacilTimer_class.new( (Start at, int recommended), (Finish at, int recommended), (Speed, int recommended), (Loops, a boolean), (Starts paused? a boolean) )
+timerName = FacilTimer_class.new(
+	(Start at, int recommended), 
+	(Finish at, int recommended), 
+	(Speed, int recommended), 
+	(Loops, a boolean), 
+	(Starts paused? a boolean) 
+	)
 ```
 
 "FacilTimer_class" is a global variable. But you must require the module for safety.
