@@ -11,7 +11,7 @@ local myTextbox
 function love.load()
 	local FacilTextbox = require("modules.FacilTextbox")
 
-	myTextbox = myTextbox = FacilTextbox.new(
+	myTextbox = FacilTextbox.new(
 		(Will appear at bottom?, a boolean), 
 		(Speed, int recommended), 
 		(lines, a table of strings), 
