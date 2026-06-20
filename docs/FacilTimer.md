@@ -26,10 +26,12 @@ By default, the .new() arguments are the following:
 ## Methods
 
 - :paused(boolean)
-- :alternatePause() [If paused, resumes, and viceversa]
+- :alternatePause()
+  [If paused, resumes, and viceversa]
 - :willLoop(boolean)
 - :toggleLoop()
-- :update(dt) [IMPORTANT! Makes everything work]
+- :update(dt)  
+  [IMPORTANT! Makes everything work]
 
 ## Example of usage
 
