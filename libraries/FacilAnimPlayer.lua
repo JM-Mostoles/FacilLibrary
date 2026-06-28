@@ -1,6 +1,6 @@
 local FacilAnimPlayer = {}
 
-function FacilAnimPlayer.newAnimation(image, horizontalFrames, rows, rowToPlay, speed, xPos, yPos)
+function FacilAnimPlayer.newAnimation(image, horizontalFrames, rows, rowToPlay, speed, xPos, yPos, pOffsetX, pOffsetY)
     local newAnimatedObject =
     {
         image = image,
@@ -38,8 +38,12 @@ function FacilAnimPlayer.newAnimation(image, horizontalFrames, rows, rowToPlay, 
         end
     end
 
-    function newAnimatedObject:changeSpeed(number)
+    function newAnimatedObject:setSpeed(number)
         self.speed = number
+    end
+
+    function newAnimatedObject:changeDisplayedRow(number)
+        self.rowToDisplay = number
     end
 
     function newAnimatedObject:setFrame(number)
@@ -67,7 +71,7 @@ function FacilAnimPlayer.newAnimation(image, horizontalFrames, rows, rowToPlay, 
     end
 
     function newAnimatedObject:play()
-        love.graphics.draw(self.image, self.quadRows[self.rowToDisplay][self.index], self.X, self.Y)
+        love.graphics.draw(self.image, self.quadRows[self.rowToDisplay][self.index], self.X, self.Y, 0, 1, 1, pOffsetX, pOffsetY)
     end
 
     return newAnimatedObject

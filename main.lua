@@ -1,27 +1,24 @@
-local playerLib = require("libraries.FacilPlayer")
-local objectLib = require("libraries.FacilObject")
-
-local world
-local newPlayer
-local newObject
+local animLib = require("libraries.FacilAnimPlayer")
+local myNewAnimation
 
 function love.load()
-    world = love.physics.newWorld(0, 0, true)
-    newPlayer = playerLib.new(world, 20, 20, 10, 4, 100)
-    newObject = objectLib.new(world, 90, 80, 30, 30)
+    love.graphics.setDefaultFilter("nearest", "nearest")
+    myNewAnimation = animLib.newAnimation(love.graphics.newImage("rs/boyagobb.png"), 4, 2, 1, 5, 150, 120, 7, 31)
 end
 
 function love.update(dt)
-    newPlayer:update(dt)
-    world:update(dt)
+    myNewAnimation:update(dt)
 end
 
 function love.keypressed(key)
-
+    if key == "w" then
+        myNewAnimation:changeDisplayedRow(1)
+    end
+    if key == "q" then
+        myNewAnimation:changeDisplayedRow(2)
+    end
 end
 
 function love.draw()
-    newPlayer:draw()
-    newObject:draw()
-
+    myNewAnimation:play()
 end
