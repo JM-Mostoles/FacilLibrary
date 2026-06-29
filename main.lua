@@ -1,27 +1,32 @@
-local myTextbox
+local camera
+local playerLib = require("libraries.FacilPlayer")
+local objectLib = require("libraries.FacilObject")
+
+local world
+local newPlayer
+local newObject
 
 function love.load()
-	local FacilTextbox = require("libraries.FacilTextbox")
-	myTextbox = FacilTextbox.newTextboxObject(true, 20, { "Like the wind", "you came running", "Waoawoaw" }, 1, 1, 1, 1)
+	local libCamera = require("FacilCamera")
+	camera = libCamera:newCameraObject()
+	world = love.physics.newWorld(0, 0, true)
+    newPlayer = playerLib.newColliderPlayer(world, 20, 20, 10, 4, 100)
+    newObject = objectLib.newColliderObject(world, 90, 80, 30, 30)
 end
 
 function love.update(dt)
-	myTextbox:update(dt)
-        if myTextbox.typewriter_linesIndex == 2 then
-            myTextbox:modifyName(1, 0, 1, 1, "FEX")
-            myTextbox:changeColor(1, 1, 0, 1)
-        end
-    end
+	newPlayer:update(dt)
+    world:update(dt)
+	camera.X, camera.Y = - newPlayer.body:getX() + (256 / 2), - newPlayer.body:getY() + (224 / 2)
+end
 
 function love.keypressed(key)
-	myTextbox:keypressed(key)
-	if myTextbox.general_isIn == false then
-		if key == "a" then
-			myTextbox:setIn(true)
-		end
-	end
 end
 
 function love.draw()
-	myTextbox:draw()
+	camera:record()
+	love.graphics.draw(love.graphics.newImage("rs/bah.png"))
+	newPlayer:draw()
+    newObject:draw()
+	camera:off()
 end
